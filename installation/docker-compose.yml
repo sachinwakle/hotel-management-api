@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+  hm-database:
+    image: postgres:13
+    container_name: hm-database
+    ports:
+      - "5678:5432"
+    environment:
+      - POSTGRES_DB=hotel_management
+      - POSTGRES_USER=hmuser
+      - POSTGRES_PASSWORD=b@tm@n!@#123
+    volumes:
+      - hm-database-vol:/var/lib/postgresql/data
+    networks:
+      - hm-net
+
+networks:
+  hm-net:
+    name: hm-net
+    driver: bridge
+
+volumes:
+  hm-database-vol:
+    name: hm-database-vol

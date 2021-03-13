@@ -1,0 +1,19 @@
+spring:
+    application:
+        name: Hotel Management RESTful Interface
+    profiles:
+        active: #spring.profiles.active#
+
+    security:
+        user:
+            name: hmuser
+            password: hmpass
+
+    datasource:
+        url: jdbc:postgresql://localhost:5678/hotel_management
+        username: hmuser
+        password: b@tm@n!@#123
+        driver: org.postgresql.Driver
+
+server:
+    port: 1010
