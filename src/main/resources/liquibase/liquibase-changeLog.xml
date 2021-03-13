@@ -1,0 +1,50 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd 
+   http://www.liquibase.org/xml/ns/dbchangelog 
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+	<changeSet author="hmuser" id="123">
+		<createTable tableName="room">
+			<column name="id" type="Bigserial" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="title" type="varchar(50)" />
+			<column name="subtitle" type="varchar(300)" />
+			<column name="description" type="text" />
+			<column name="room_rate" type="integer" />
+			<column name="room_rate_offer_name" type="varchar(100)" />
+			<column name="room_rate_discount_percentage" type="varchar(100)" />
+			<column name="created_on" type="datetime" />
+		</createTable>
+		<createTable tableName="room_overview">
+			<column name="id" type="Bigserial" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="room_id" type="integer" />
+			<column name="item_name" type="varchar(300)" />
+			<column name="sub_item_name" type="varchar(1000)" />
+			<column name="sub_items" type="text" />
+			<column name="created_on" type="datetime" />
+		</createTable>
+		<addForeignKeyConstraint baseColumnNames="room_id"
+			baseTableName="room_overview" constraintName="fk_room_id" onDelete="CASCADE"
+			referencedColumnNames="id" referencedTableName="room" />
+		<createTable tableName="enquiry_details">
+			<column name="id" type="Bigserial" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="first_name " type="varchar(100)" />
+			<column name="last_name" type="varchar(100)" />
+			<column name="contact_no" type="varchar(50)" />
+			<column name="guest_count" type="integer" />
+			<column name="checkin_date" type="datetime" />
+			<column name="checkout_date" type="datetime" />
+			<column name="customer_comment" type="text" />
+			<column name="owner_comment" type="text" />
+			<column name="enquiry_status" type="varchar(50)" />
+			<column name="created_on" type="datetime" />
+		</createTable>
+	</changeSet>
+</databaseChangeLog>
