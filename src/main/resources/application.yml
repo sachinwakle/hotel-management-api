@@ -2,7 +2,7 @@ spring:
     application:
         name: Hotel Management RESTful Interface
     profiles:
-        active: #spring.profiles.active#
+        active: dev
 
     security:
         user:

@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5678/hotel_management
+    username: hmuser
+    password: b@tm@n!@#123
+    driver: org.postgresql.Driver
+    
+logging:
+  level:
+    com.hotel.app: INFO
