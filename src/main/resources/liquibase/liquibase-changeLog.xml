@@ -15,12 +15,12 @@
 			<column name="description" type="text" />
 			<column name="room_rate" type="integer" />
 			<column name="room_rate_offer_name" type="varchar(100)" />
-			<column name="room_rate_discount_percentage" type="varchar(100)" />
+			<column name="room_rate_discount_percentage" type="float" />
 			<column name="created_on" type="datetime" />
 		</createTable>
 		<createTable tableName="room_overview">
-			<column name="id" type="Bigserial" autoIncrement="true">
-				<constraints primaryKey="true" nullable="false" />
+			<column name="id" type="Bigserial" >
+				<constraints nullable="false" />
 			</column>
 			<column name="room_id" type="integer" />
 			<column name="item_name" type="varchar(300)" />
