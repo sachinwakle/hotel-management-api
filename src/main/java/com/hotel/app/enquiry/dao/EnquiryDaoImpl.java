@@ -75,7 +75,7 @@ public class EnquiryDaoImpl implements EnquiryDao {
 				", enquiry.owner_comment as", OWNER_COMMENT, ", enquiry.enquiry_status as", ENQUIRY_STATUS,
 				", enquiry.created_on as", CREATED_ON, "FROM enquiry_details enquiry"));
 
-		log.debug("Find Rooms Query: {}", query.getQuery());
+		log.debug("Find Enquiry Query: {}", query.getQuery());
 		return namedParameterJdbcTemplate.query(query.getQuery(), enquiryMapper);
 	}
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.hotel.app.enquiry.dto.EnquiryDto;
 import com.hotel.app.enquiry.service.EnquiryService;
@@ -31,9 +32,9 @@ public class EnquiryResource {
 	@PostMapping(path = "/enquiry", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<EnquiryDto> createEnquiry(@RequestBody EnquiryDto enquiryDto) {
 		EnquiryDto enquiry = this.enquiryService.createEnquiry(enquiryDto);
-		return ResponseEntity.ok(enquiry);
+		return ResponseEntity.created(ServletUriComponentsBuilder.fromCurrentRequest().build().toUri()).body(enquiry);
 	}
-	
+
 	@ApiOperation(value = "Get all customer enquiries", notes = "All Enquiry data")
 	@GetMapping(path = "/enquiry", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<EnquiryDto>> getEnquiry() {
