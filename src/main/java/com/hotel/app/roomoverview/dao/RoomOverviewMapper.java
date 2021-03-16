@@ -1,5 +1,6 @@
 package com.hotel.app.roomoverview.dao;
 
+import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -23,10 +24,9 @@ public class RoomOverviewMapper implements RowMapper<RoomOverviewItemDto> {
 	roomOverviewItemDto.setItemName(resultSet.getString(RoomOverviewDaoImpl.ITEM_NAME));
 	roomOverviewItemDto.setRoomId(resultSet.getInt(RoomOverviewDaoImpl.ROOM_ID));
 	roomOverviewItemDto.setSubItemName(resultSet.getString(RoomOverviewDaoImpl.SUBITEM_NAME));
-	String subItemArray = resultSet.getString(RoomOverviewDaoImpl.SUBITEMS);
-	roomOverviewItemDto
-		.setSubItems((subItemArray == null || subItemArray.isEmpty()) ? null
-			: new ArrayList<>(Arrays.asList(subItemArray.substring(1, subItemArray.length() - 1))));
+	Array subItemArray = resultSet.getArray(RoomOverviewDaoImpl.SUBITEMS);
+	String[] strArray = subItemArray == null ? null : (String[]) subItemArray.getArray();
+	roomOverviewItemDto.setSubItems((strArray == null) ? null : new ArrayList<>(Arrays.asList(strArray)));
 
 	return roomOverviewItemDto;
     }
