@@ -25,7 +25,7 @@
 			<column name="room_id" type="integer" />
 			<column name="item_name" type="varchar(300)" />
 			<column name="sub_item_name" type="varchar(1000)" />
-			<column name="sub_items" type="text" />
+			<column name="sub_items" type="text[]" />
 			<column name="created_on" type="datetime" />
 		</createTable>
 		<addForeignKeyConstraint baseColumnNames="room_id"
