@@ -35,12 +35,12 @@
 			<column name="id" type="Bigserial" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false" />
 			</column>
-			<column name="first_name " type="varchar(100)" />
+			<column name="first_name" type="varchar(100)" />
 			<column name="last_name" type="varchar(100)" />
 			<column name="contact_no" type="varchar(50)" />
 			<column name="guest_count" type="integer" />
-			<column name="checkin_date" type="datetime" />
-			<column name="checkout_date" type="datetime" />
+			<column name="checkin_date" type="date" />
+			<column name="checkout_date" type="date" />
 			<column name="customer_comment" type="text" />
 			<column name="owner_comment" type="text" />
 			<column name="enquiry_status" type="varchar(50)" />
