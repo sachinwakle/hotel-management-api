@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hotel.app.common.dto.QueryParamDto;
 import com.hotel.app.enquiry.dto.EnquiryDto;
+import com.hotel.app.enquiry.dto.EnquiryStatus;
 
 @Repository
 @Transactional(readOnly = true)
@@ -59,7 +60,7 @@ public class EnquiryDaoImpl implements EnquiryDao {
 		query.addQueryParameter(CHECKOUT_DATE, enquiryDto.getCheckOutDate());
 		query.addQueryParameter(CUSTOMER_COMMENT, enquiryDto.getCustomerComment());
 		query.addQueryParameter(OWNER_COMMENT, enquiryDto.getOwnerComment());
-		query.addQueryParameter(ENQUIRY_STATUS, enquiryDto.getEnquiryStatus().toString());
+		query.addQueryParameter(ENQUIRY_STATUS, EnquiryStatus.PENDING.toString());
 		query.addQueryParameter(CREATED_ON, Timestamp.from(Instant.now()));
 
 		log.debug("Create Enquiry Query: {}", query.getQuery());
